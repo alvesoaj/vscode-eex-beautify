@@ -1,0 +1,82 @@
+{
+  "name": "vscode-eex-beautify",
+  "displayName": "EEX Formatter/Beautify",
+  "description": "Format/Beautify EEX files",
+  "version": "0.1.0",
+  "publisher": "zerokol",
+  "license": "MIT",
+  "bugs": "https://github.com/zerokol/vscode-eex-beautify/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zerokol/vscode-eex-beautify"
+  },
+  "engines": {
+    "vscode": "^1.28.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:eex"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "languages": [
+      {
+        "id": "eex",
+        "aliases": [
+          "EEX"
+        ],
+        "extensions": [
+          ".eex",
+          ".html.eex"
+        ]
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "VSCode EEX Beautify configuration",
+      "properties": {
+        "vscode-eex-beautify.tabStops": {
+          "type": "number",
+          "default": 2,
+          "description": "Set number of spaces per indent (default 2)"
+        },
+        "vscode-eex-beautify.tab": {
+          "type": "boolean",
+          "default": false,
+          "description": "Indent using tabs"
+        },
+        "vscode-eex-beautify.indentBy": {
+          "type": "number",
+          "default": 0,
+          "description": "Indent the output by NUMBER steps (default 0)"
+        },
+        "vscode-eex-beautify.stopOnErrors": {
+          "type": "boolean",
+          "default": false,
+          "description": "Stop when invalid nesting is encountered in the input"
+        },
+        "vscode-eex-beautify.keepBlankLines": {
+          "type": "number",
+          "default": 0,
+          "description": "Set number of consecutive blank lines (default 0)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^8.10.38",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.21"
+  }
+}
