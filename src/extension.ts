@@ -7,50 +7,53 @@ import * as cp from "child_process";
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-  vscode.languages.registerDocumentFormattingEditProvider("eex", {
-    provideDocumentFormattingEdits(
-      document: vscode.TextDocument
-    ): vscode.TextEdit[] {
-      const ext = process.platform === "win32" ? ".bat" : "";
-      const beautifier = cp.spawn(`htmlbeautifier${ext}`, ["-v"]);
+  vscode.languages.registerDocumentFormattingEditProvider(
+    ["eex", "HTML (EEx)"],
+    {
+      provideDocumentFormattingEdits(
+        document: vscode.TextDocument
+      ): vscode.TextEdit[] {
+        const ext = process.platform === "win32" ? ".bat" : "";
+        const beautifier = cp.spawn(`htmlbeautifier${ext}`, ["-v"]);
 
-      beautifier.on("error", err => {
-        if (err.message.includes("ENOENT")) {
-          vscode.window.showErrorMessage(
-            `couldn't find htmlbeautifier for formatting (ENOENT)`
-          );
-        } else {
-          vscode.window.showErrorMessage(
-            `couldn't run htmlbeautifier '${err.message}'`
-          );
-        }
-      });
-
-      beautifier.stderr.on("data", data => {
-        console.log(`htmlbeautifier stderr ${data}`);
-      });
-
-      beautifier.stdout.on("data", data => {
-        console.log(`htmlbeautifier stdout ${data}`);
-      });
-
-      beautifier.on("exit", code => {
-        console.log(`htmlbeautifier is ready to go!`);
-        const options = cli_options();
-        const beautify = cp.spawn(`htmlbeautifier${ext}`, [
-          ...options,
-          document.uri.fsPath
-        ]);
-        beautify.on("exit", code => {
-          if (code === 1 && options.indexOf("--stop-on-errors") > -1) {
-            cp.spawn("rm", [`${document.uri.fsPath}.tmp`]);
+        beautifier.on("error", err => {
+          if (err.message.includes("ENOENT")) {
+            vscode.window.showErrorMessage(
+              `couldn't find htmlbeautifier for formatting (ENOENT)`
+            );
+          } else {
+            vscode.window.showErrorMessage(
+              `couldn't run htmlbeautifier '${err.message}'`
+            );
           }
         });
-      });
 
-      return [];
+        beautifier.stderr.on("data", data => {
+          console.log(`htmlbeautifier stderr ${data}`);
+        });
+
+        beautifier.stdout.on("data", data => {
+          console.log(`htmlbeautifier stdout ${data}`);
+        });
+
+        beautifier.on("exit", code => {
+          console.log(`htmlbeautifier is ready to go!`);
+          const options = cli_options();
+          const beautify = cp.spawn(`htmlbeautifier${ext}`, [
+            ...options,
+            document.uri.fsPath
+          ]);
+          beautify.on("exit", code => {
+            if (code === 1 && options.indexOf("--stop-on-errors") > -1) {
+              cp.spawn("rm", [`${document.uri.fsPath}.tmp`]);
+            }
+          });
+        });
+
+        return [];
+      }
     }
-  });
+  );
 }
 
 // this method is called when your extension is deactivated
