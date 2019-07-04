@@ -25,7 +25,8 @@
       {
         "id": "eex",
         "aliases": [
-          "EEX"
+          "EEX",
+          "HTML (EEx)"
         ],
         "extensions": [
           ".eex",
