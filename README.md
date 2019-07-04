@@ -1,4 +1,4 @@
-# EEX Formatter/Beautify
+# EEx Formatter/Beautify
 
 Most of solution that exist in the internet is tell you to create a task and call it using ctrl-shift-p menu.
 
