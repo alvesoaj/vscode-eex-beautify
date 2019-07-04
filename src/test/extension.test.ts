@@ -12,4 +12,8 @@ import * as assert from "assert";
 // import * as myExtension from '../extension';
 
 // Defines a Mocha test suite to group tests of similar kind together
-suite("Extension Tests", function() {});
+suite("Extension Tests", function() {
+  test("Do somenthing", function() {
+    assert.equal(1, 1);
+  });
+});
