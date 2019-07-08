@@ -6,7 +6,7 @@ This extension basically using [htmlbeautifier](https://github.com/threedaymonk/
 
 ## Features
 
-![Demo GIF](https://...)
+![Demo GIF](https://raw.githubusercontent.com/zerokol/vscode-eex-beautify/master/images/demo.gif)
 
 ## Requirements
 
