@@ -6,7 +6,7 @@ This extension basically using [htmlbeautifier](https://github.com/threedaymonk/
 
 ## Features
 
-TODO
+![Demo GIF](https://...)
 
 ## Requirements
 
