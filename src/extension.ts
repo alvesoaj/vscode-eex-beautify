@@ -59,6 +59,11 @@ export function activate(context: vscode.ExtensionContext) {
 // this method is called when your extension is deactivated
 export function deactivate() {}
 
+export const testJsBeautify = async () => {
+  const ext = process.platform === "win32" ? ".bat" : "";
+  return cp.spawnSync(`js-beautify${ext}`, ["-v"]);
+}
+
 function cli_options() {
   const config = vscode.workspace.getConfiguration("vscode-eex-beautify");
   let acc: string[] = [];
