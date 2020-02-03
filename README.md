@@ -1,8 +1,8 @@
 # EEx Formatter/Beautify
 
-Most of solution that exist in the internet is tell you to create a task and call it using ctrl-shift-p menu.
+Most of solutions that exist on the Internet tell you to create a task and call it from the ctrl-shift-p menu.
 
-This extension basically using [htmlbeautifier](https://github.com/threedaymonk/htmlbeautifier) to format your file using the Formatter API from the vscode, so no need to create a hack using Task, etc.
+This extension basically uses [htmlbeautifier](https://github.com/threedaymonk/htmlbeautifier) to format your file using the Formatter API from vscode, so no need to create a hack using Task, etc.
 
 ## Features
 
@@ -14,7 +14,7 @@ This extension basically using [htmlbeautifier](https://github.com/threedaymonk/
 gem install htmlbeautifier
 ```
 
-NOTE: For you that have a filename with extension `.html.eex`, your file might be recognized as `html` file, not as `eex` file. In that case, add a setting in your `settings.json` like below:
+NOTE: Filenames with extension `.html.eex` might be recognized as an `html` file, not as an `eex` file. In that case, add a setting in your `settings.json` like below:
 
 ```json
 "files.associations": {
