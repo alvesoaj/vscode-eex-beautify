@@ -8,7 +8,7 @@ import * as cp from "child_process";
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
   vscode.languages.registerDocumentFormattingEditProvider(
-    ["eex", "HTML (EEx)"],
+    ["eex", "HTML (EEx)", "HTML (Eex)"],
     {
       provideDocumentFormattingEdits(
         document: vscode.TextDocument

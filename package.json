@@ -19,7 +19,8 @@
   ],
   "activationEvents": [
     "onLanguage:eex",
-    "onLanguage:HTML (EEx)"
+    "onLanguage:HTML (EEx)",
+    "onLanguage:HTML (Eex)"
   ],
   "main": "./out/extension",
   "contributes": {
