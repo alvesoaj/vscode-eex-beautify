@@ -2,7 +2,7 @@
   "name": "vscode-eex-beautify",
   "displayName": "EEx Formatter/Beautify",
   "description": "Format/Beautify EEx files",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "publisher": "zerokol",
   "license": "MIT",
   "bugs": "https://github.com/zerokol/vscode-eex-beautify/issues",
@@ -20,6 +20,7 @@
   "activationEvents": [
     "onLanguage:eex",
     "onLanguage:HTML (EEx)",
+    "onLanguage:HTML (Eex)",
     "onLanguage:html-eex"
   ],
   "main": "./out/extension",
@@ -39,6 +40,16 @@
         "id": "HTML (EEx)",
         "aliases": [
           "HTML (EEx)"
+        ],
+        "extensions": [
+          ".html.eex",
+          ".html.leex"
+        ]
+      },
+      {
+        "id": "HTML (Eex)",
+        "aliases": [
+          "HTML (Eex)"
         ],
         "extensions": [
           ".html.eex",
@@ -98,6 +109,7 @@
   "devDependencies": {
     "@types/mocha": "^2.2.42",
     "@types/node": "^8.10.38",
+    "minimist": ">=0.2.1",
     "tslint": "^5.8.0",
     "typescript": "^2.6.1",
     "vscode": "^1.1.35"
