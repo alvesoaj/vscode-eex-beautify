@@ -8,7 +8,7 @@ import * as cp from "child_process";
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
   vscode.languages.registerDocumentFormattingEditProvider(
-    ["eex", "HTML (EEx)"],
+    ["eex", "HTML (EEx)", "html-eex"],
     {
       provideDocumentFormattingEdits(
         document: vscode.TextDocument
@@ -58,6 +58,11 @@ export function activate(context: vscode.ExtensionContext) {
 
 // this method is called when your extension is deactivated
 export function deactivate() {}
+
+export const testJsBeautify = async () => {
+  const ext = process.platform === "win32" ? ".bat" : "";
+  return cp.spawnSync(`js-beautify${ext}`, ["-v"]);
+}
 
 function cli_options() {
   const config = vscode.workspace.getConfiguration("vscode-eex-beautify");
