@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
         document: vscode.TextDocument
       ): vscode.TextEdit[] {
         const ext = process.platform === "win32" ? ".bat" : "";
-        const beautifier = cp.spawn(`htmlbeautifier${ext}`, ["-v"]);
+        const beautifier = cp.spawn(`htmlbeautifier${ext}`, ["help"]);
 
         beautifier.on("error", err => {
           if (err.message.includes("ENOENT")) {
@@ -57,7 +57,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }
 
 export const testJsBeautify = async () => {
   const ext = process.platform === "win32" ? ".bat" : "";
@@ -67,7 +67,7 @@ export const testJsBeautify = async () => {
 function cli_options() {
   const config = vscode.workspace.getConfiguration("vscode-eex-beautify");
   let acc: string[] = [];
-  return Object.keys(config).reduce(function(acc, key) {
+  return Object.keys(config).reduce(function (acc, key) {
     switch (key) {
       case "indentBy":
         acc.push("--indent-by", config[key]);
