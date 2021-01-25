@@ -12,3 +12,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Add html-eex language in languages list
 - Fix security issues
+
+## V 0.2.1
+
+- Add activation event to html-eex
