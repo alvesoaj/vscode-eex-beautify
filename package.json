@@ -3,13 +3,13 @@
   "displayName": "EEx Formatter/Beautify",
   "description": "Format/Beautify EEx files",
   "version": "0.2.2",
-  "publisher": "zerokol",
+  "publisher": "alvesoaj",
   "license": "MIT",
-  "bugs": "https://github.com/zerokol/vscode-eex-beautify/issues",
+  "bugs": "https://github.com/alvesoaj/vscode-eex-beautify/issues",
   "icon": "images/logo.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zerokol/vscode-eex-beautify"
+    "url": "https://github.com/alvesoaj/vscode-eex-beautify"
   },
   "engines": {
     "vscode": "^1.28.0"
